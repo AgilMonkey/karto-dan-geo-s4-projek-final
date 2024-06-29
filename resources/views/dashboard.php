@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Location on Map</title>
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
@@ -23,16 +23,41 @@
     </style>
 </head>
 <body>
-    <h2>User Location on Map</h2>
     <div id="map" style="width: 600px; height: 400px;"></div>
     <script>
+        const POLIBAN_CORDS = [-3.2959108, 114.5823674];
 
-        const map = L.map('map').setView([51.505, -0.09], 13);
+        const map = L.map('map', {zoom: 20}).fitWorld();
 
         const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+
+        //  poliban area
+        L.circle(POLIBAN_CORDS, {radius: 220, color:'red'}).addTo(map);
+
+        map.locate({setView: true, maxZoom: 20});
+
+        function onLocationFound(e) {
+            var lat = e.latlng.lat;
+            var lon = e.latlng.lng;
+
+            map.setView([lat, lon], 17);
+
+            L.marker(e.latlng).addTo(map)
+
+            document.getElementById('latitude').textContent = 'Latitude: ' + lat;
+            document.getElementById('longitude').textContent = 'Longitude: ' + lon;
+        }
+
+        map.on('locationfound', onLocationFound);
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+
+        map.on('locationerror', onLocationError);
 
     </script>
     <div class="info">
