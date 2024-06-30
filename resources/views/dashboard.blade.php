@@ -20,10 +20,36 @@
             max-width: 100%;
             max-height: 100%;
         }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse; /* Merge borders */
+        }
+        td {
+            padding: 5px;
+        }
+        .container {
+            display: flex;
+        }
     </style>
 </head>
 <body>
-    <div id="map" style="width: 600px; height: 400px;"></div>
+    <div class="container">
+        <div id="map" style="width: 600px; height: 400px;"></div>
+        <div>
+            <table>
+                <tr style="font-weight: bold;">
+                    <td>Nama</td>
+                    <td>Status</td>
+                </tr>
+                <tr>
+                    <td>Agil</td>
+                    <td>Hadir</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <button type="button">Datang</button>
+    <button type="button">Pulang</button>
     <script>
         const POLIBAN_CORDS = [-3.2959108, 114.5823674];
 
