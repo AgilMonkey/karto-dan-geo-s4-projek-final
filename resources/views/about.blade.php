@@ -14,14 +14,21 @@
 <x-layout></x-layout>
 
 <body>
-    <h1>Hi mom</h1>
-    <h2>Names agil</h2>
-    <div class="flex justify-center m-199">
-        <img class="size-72 item-center my-20" src="https://c.tenor.com/b0iH2hLocxQAAAAd/tenor.gif" alt="Description of GIF">
+    <div class="px-4">
+
+        <h1>Hi mom</h1>
+        <h2>Names agil</h2>
+        <div class="flex justify-center m-199">
+            <img class="size-72 item-center my-20" src="https://c.tenor.com/b0iH2hLocxQAAAAd/tenor.gif"
+                alt="Description of GIF">
+        </div>
+        <h3 style="color: darkred">かいなでの絵師には総じて醜いものの美しさなどと申すことは、わかろうはずがございませぬ。</h3>
+        <h3 style="color: darkred; text-align: right">Other painters are such mediocrities, they have no way to
+            recognize
+            the beauty that lies in ugliness.
+        </h3>
+
     </div>
-    <h3 style="color: darkred">かいなでの絵師には総じて醜いものの美しさなどと申すことは、わかろうはずがございませぬ。</h3>
-    <h3 style="color: darkred; text-align: right">Other painters are such mediocrities, they have no way to recognize
-        the beauty that lies in ugliness.</h3>
 </body>
 
 </html>
