@@ -67,8 +67,12 @@
                 </table>
             </div>
         </div>
-        <button type="button">Datang</button>
-        <button type="button">Pulang</button>
+
+        <div class="m-2 flex gap-4">
+            <x-button>Datang</x-button>
+            <x-button>Pulang</x-button>
+        </div>
+
         <div class="info">
             <p id="latitude">Latitude: </p>
             <p id="longitude">Longitude: </p>
