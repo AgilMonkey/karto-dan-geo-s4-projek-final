@@ -35,4 +35,13 @@ class LoginController extends Controller
         // Redirect
         return redirect('/home');
     }
+    public function showLoginForm()
+    {
+        if (Auth::check()) {
+            return redirect('/home'); // Redirect authenticated users
+        }
+
+        return view('auth.login');
+
+    }
 }

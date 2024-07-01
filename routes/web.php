@@ -4,11 +4,14 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('/home');
+    return redirect('/login');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        // Only authenticated users can access this route
+        return view('home');
+    });
 });
 
 Route::get('/about', function () {
@@ -21,3 +24,4 @@ Route::get('/test', function () {
 
 Route::get('/login', [LoginController::class, 'create']);
 Route::post('/login', [LoginController::class, 'store']);
+Route::get('/login', [LoginController::class, 'showLoginForm']);
