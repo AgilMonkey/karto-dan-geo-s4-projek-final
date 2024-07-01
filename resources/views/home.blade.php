@@ -80,9 +80,11 @@
 
                     <div class="m-2 flex gap-4">
                         <form method="POST" action="/datang">
+                            @csrf
                             <x-button>Datang</x-button>
                         </form>
                         <form method="POST" action="/pulang">
+                            @csrf
                             <x-button>Pulang</x-button>
                         </form>
                     </div>
