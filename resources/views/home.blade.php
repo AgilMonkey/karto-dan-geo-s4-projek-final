@@ -48,7 +48,7 @@
                             <table class="min-w-fit divide-y-2 divide-gray-200 bg-white text-sm">
                                 <thead class="ltr:text-left rtl:text-right">
                                     <tr>
-                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+                                        <th class:="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
                                         <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                             Jam/Tanggal
                                         </th>

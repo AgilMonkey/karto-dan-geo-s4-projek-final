@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Absen extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'waktu',
+        'status',
+    ];
 }
