@@ -25,3 +25,4 @@ Route::get('/test', function () {
 Route::get('/login', [LoginController::class, 'create']);
 Route::post('/login', [LoginController::class, 'store']);
 Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

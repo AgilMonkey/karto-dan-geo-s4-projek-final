@@ -27,11 +27,17 @@
       <div class="flex items-center gap-4">
         <div class="sm:flex sm:gap-4">
           <a
-            class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-            href="#"
+            class="block rounded-md bg-red-400 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-red-700"
+            href="#" id="logoutButton"
           >
             Log off
           </a>
+
+          <!-- Log out form -->
+          <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+
         </div>
 
         <button
@@ -52,11 +58,20 @@
       </div>
     </div>
   </div>
+<script>
+    document.getElementById('logoutButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        
+        // Submit the form
+        document.getElementById('logoutForm').submit();
+    });
+</script>
 </header>
 
 <body>
     {{ $slot; }}
 </body>
+
 
 
 {{-- <html lang="en">
