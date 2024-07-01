@@ -59,7 +59,8 @@
 
                                 <tbody class="divide-y divide-gray-200">
                                     @foreach ($data as $row)
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ $row->nama }}
+                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                            {{ $row->nama }}
                                         </td>
                                         <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $row->waktu }}</td>
                                         <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $row->status }}</td>
@@ -78,8 +79,12 @@
                 <div class="inline-flex flex-col">
 
                     <div class="m-2 flex gap-4">
-                        <x-button>Datang</x-button>
-                        <x-button>Pulang</x-button>
+                        <form method="POST" action="/datang">
+                            <x-button>Datang</x-button>
+                        </form>
+                        <form method="POST" action="/pulang">
+                            <x-button>Pulang</x-button>
+                        </form>
                     </div>
 
                 </div>
