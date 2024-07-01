@@ -31,8 +31,11 @@
             display: flex;
         }
     </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
     <x-layout>
         <div class="container">
             <div id="map" style="width: 600px; height: 400px;"></div>
@@ -56,42 +59,43 @@
             <p id="longitude">Longitude: </p>
         </div>
     </x-layout>
-        <script>
-            const POLIBAN_CORDS = [-3.2959108, 114.5823674];
 
-            const map = L.map('map', {zoom: 20});
+    <script>
+        const POLIBAN_CORDS = [-3.2959108, 114.5823674];
 
-            const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
+        const map = L.map('map', {zoom: 20});
 
-            //  poliban area
-            L.circle(POLIBAN_CORDS, {radius: 220, color:'red'}).addTo(map);
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
 
-            map.locate({setView: true, maxZoom: 20});
+        //  poliban area
+        L.circle(POLIBAN_CORDS, {radius: 220, color:'red'}).addTo(map);
 
-            function onLocationFound(e) {
-                var lat = e.latlng.lat;
-                var lon = e.latlng.lng;
+        map.locate({setView: true, maxZoom: 20});
 
-                map.setView([lat, lon], 17);
+        function onLocationFound(e) {
+            var lat = e.latlng.lat;
+            var lon = e.latlng.lng;
 
-                L.marker(e.latlng).addTo(map)
+            map.setView([lat, lon], 17);
 
-                document.getElementById('latitude').textContent = 'Latitude: ' + lat;
-                document.getElementById('longitude').textContent = 'Longitude: ' + lon;
-            }
+            L.marker(e.latlng).addTo(map)
 
-            map.on('locationfound', onLocationFound);
+            document.getElementById('latitude').textContent = 'Latitude: ' + lat;
+            document.getElementById('longitude').textContent = 'Longitude: ' + lon;
+        }
 
-            function onLocationError(e) {
-                alert(e.message);
-            }
+        map.on('locationfound', onLocationFound);
 
-            map.on('locationerror', onLocationError);
+        function onLocationError(e) {
+            alert(e.message);
+        }
 
-        </script>
+        map.on('locationerror', onLocationError);
+
+    </script>
 
 </body>
 </html>
