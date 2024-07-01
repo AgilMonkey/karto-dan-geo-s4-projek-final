@@ -42,11 +42,11 @@
 
                 <div class="flex flex-col sm:flex-row gap-5 ">
 
-                    <div id="map" style="width: 600px; height: 400px;"></div>
+                    <div id="map" class="min-w-sm w-600px h-400px"></div>
 
-                    <div>
-                        <div class="max-h-72 min-w-full overflow-x-auto rounded-lg border border-gray-200">
-                            <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                    <div class="">
+                        <div class="h-48 overflow-x-auto rounded-lg border border-gray-200">
+                            <table class="min-w-fit divide-y-2 divide-gray-200 bg-white text-sm">
                                 <thead class="ltr:text-left rtl:text-right">
                                     <tr>
                                         <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
