@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\DatangController;
+use App\Http\Controllers\PulangController;
 use App\Models\Absen;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,4 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/home', [AbsenController::class, 'index']);
 
 Route::post('/datang', [DatangController::class, 'store'])->name('datang');
-Route::post('/pulang', [DatangController::class, 'store'])->name('pulang');
+Route::post('/pulang', [PulangController::class, 'store'])->name('pulang');
