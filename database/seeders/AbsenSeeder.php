@@ -15,10 +15,43 @@ class AbsenSeeder extends Seeder
      */
     public function run(): void
     {
-        Absen::create([
-            'nama' => User::first()->name,
-            'waktu' => "2024-07-02 09:30:00",
-            'status' => 'Datang'
-        ]);
+        // Define specific user data
+        $users = [
+            [
+                'nama' => 'Agil',
+                'waktu' => '2024-07-02 07:30:00',
+                'status' => 'Datang',
+            ],
+            [
+                'nama' => 'Agil',
+                'waktu' => '2024-07-02 17:30:00',
+                'status' => 'Pulang',
+            ],
+            [
+                'nama' => 'Jane Smith',
+                'waktu' => '2024-07-02 08:00:00',
+                'status' => 'datang',
+            ],
+            [
+                'nama' => 'Jane Smith',
+                'waktu' => '2024-07-02 16:00:00',
+                'status' => 'pulang',
+            ],
+            [
+                'nama' => 'Bob Brown',
+                'waktu' => '2024-07-02 09:00:00',
+                'status' => 'datang',
+            ],
+            [
+                'nama' => 'Bob Brown',
+                'waktu' => '2024-07-02 18:00:00',
+                'status' => 'pulang',
+            ],
+        ];
+
+        // Insert users into the database
+        foreach ($users as $user) {
+            Absen::create($user);
+        }
     }
 }

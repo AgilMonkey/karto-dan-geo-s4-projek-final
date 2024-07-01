@@ -19,6 +19,7 @@
         <h1 class="text-xl">Nama: Muhammad Agil Fadilah</h1>
         <h1 class="text-xl">NIM: C050422010</h1>
         <h1 class="text-xl">Kelas: SIKC 4A</h1>
+        <a class="text-xl text-blue-600 dark:text-blue-500 hover:underline" href="https://github.com/AgilMonkey/karto-dan-geo-s4-projek-final">Github Repo</a>
         <div class="flex justify-center m-199">
             <img class="size-72 item-center my-20" src="https://c.tenor.com/b0iH2hLocxQAAAAd/tenor.gif"
                 alt="Description of GIF">
