@@ -13,7 +13,9 @@ class AbsenController extends Controller
      */
     public function index()
     {
-        //
+        $data = Absen::all(); // Fetch data from YourModel
+    
+        return view('home', ['data' => $data]); // Pass data to Blade view
     }
 
     /**
