@@ -11,8 +11,7 @@
 </head>
 
 <body>
-                <input type="email" id="email" placeholder="john@rhcp.com"
-                    class="rounded-sm border-4 border-amber-700" />
+    <h1 class="mx-auto">AAAAAAAA</h1>
 </body>
 
 </html>
