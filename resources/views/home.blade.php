@@ -20,10 +20,9 @@
         }
 
         .leaflet-container {
-            height: 400px;
             width: 600px;
-            max-width: 100%;
-            max-height: 100%;
+            height: 400px;
+            min-width: fit-content;
         }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet">
@@ -34,122 +33,139 @@
 </x-layout>
 
 <body>
-    <div class="flex justify-center">
+    <div class="w-fit container mx-auto">
 
-        <div class="p-4 inline-flex">
+        <div class="w-fit p-4">
 
-            <div class="inline-flex flex-col">
+            <div class="w-fit">
 
-                <div class="flex flex-col sm:flex-row gap-5 ">
+                    <div class="flex flex-col lg:flex-row gap-5">
 
-                    <div id="map" class="min-w-sm w-600px h-400px"></div>
+                        <div id="map" class=""></div>
 
-                    <div class="">
-                        <div class="h-48 overflow-x-auto rounded-lg border border-gray-200">
-                            <table class="min-w-fit divide-y-2 divide-gray-200 bg-white text-sm">
-                                <thead class="ltr:text-left rtl:text-right">
-                                    <tr>
-                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
-                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Jam/Tanggal
-                                        </th>
-                                        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Status</th>
-                                    </tr>
-                                </thead>
+                        <div class="">
+                            <div class="h-48 overflow-x-auto rounded-lg border border-gray-200">
+                                <table class="min-w-fit divide-y-2 divide-gray-200 bg-white text-sm">
+                                    <thead class="ltr:text-left rtl:text-right">
+                                        <tr>
+                                            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+                                            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Jam/Tanggal
+                                            </th>
+                                            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Status
+                                            </th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">John Doe</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">Datang</td>
-                                    </tr>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">John Doe
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Jane Doe</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">04/11/1980</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">Pulang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Jane Doe
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">04/11/1980</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Pulang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary barlow
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">gary
+                                                barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">datang</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
 
+
+                    </div>
                 </div>
 
                 <div class="inline-flex flex-col">
