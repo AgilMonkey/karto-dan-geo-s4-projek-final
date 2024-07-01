@@ -32,5 +32,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/home', [AbsenController::class, 'index']);
 
-Route::post('/datang', [DatangController::class, 'store']);
-Route::post('/pulang', [DatangController::class, 'store']);
+Route::post('/datang', [DatangController::class, 'store'])->name('datang');
+Route::post('/pulang', [DatangController::class, 'store'])->name('pulang');

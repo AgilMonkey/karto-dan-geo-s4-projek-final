@@ -59,14 +59,16 @@
 
                                 <tbody class="divide-y divide-gray-200">
                                     @foreach ($data as $row)
-                                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                            {{ $row->nama }}
-                                        </td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $row->waktu }}</td>
-                                        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $row->status }}</td>
+                                        <tr>
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                {{ $row->nama }}
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $row->waktu }}
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ $row->status }}
+                                            </td>
+                                        </tr>
                                     @endforeach
-                                    <tr>
-                                    </tr>
 
                                 </tbody>
                             </table>
@@ -79,15 +81,19 @@
                 <div class="inline-flex flex-col">
 
                     <div class="m-2 flex gap-4">
-                        <form method="POST" action="/datang">
+                        <x-button id="datangButton">Datang</x-button>
+                        <x-button id="pulangButton">Pulang</x-button>
+                        <form id="datangForm" method="POST" action={{ route('datang') }}>
                             @csrf
-                            <x-button>Datang</x-button>
                         </form>
-                        <form method="POST" action="/pulang">
+                        <form id="pulangForm" method="POST" action={{ route('pulang') }}>
                             @csrf
-                            <x-button>Pulang</x-button>
                         </form>
                     </div>
+
+                    @error('absen')
+                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
 
                 </div>
 
@@ -99,7 +105,22 @@
 
 
     <script>
+        document.getElementById('datangButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (isInsidePoliban()) {
+                document.getElementById('datangForm').submit();
+            }
+        });
+        document.getElementById('pulangButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (isInsidePoliban()) {
+                document.getElementById('pulangForm').submit();
+            }
+        });
+
         const POLIBAN_CORDS = [-3.2959108, 114.5823674];
+
+        var pos = [0, 0];
 
         const map = L.map('map', {
             zoom: 20
@@ -121,16 +142,18 @@
             maxZoom: 20
         });
 
+
         function onLocationFound(e) {
-            var lat = e.latlng.lat;
-            var lon = e.latlng.lng;
+            var latlng = e.latlng;
+            pos = [latlng.lat, latlng.lng];
+            pos = [-3.2959108 + 0.0010, 114.5823674 + 0.0001]
+
+            var lat = pos[0];
+            var lon = pos[1];
 
             map.setView([lat, lon], 17);
 
-            L.marker(e.latlng).addTo(map)
-
-            document.getElementById('latitude').textContent = 'Latitude: ' + lat;
-            document.getElementById('longitude').textContent = 'Longitude: ' + lon;
+            L.marker(pos).addTo(map)
         }
 
         map.on('locationfound', onLocationFound);
@@ -140,6 +163,20 @@
         }
 
         map.on('locationerror', onLocationError);
+
+
+        function isInsidePoliban() {
+            var latlng = pos;
+            var poliban_radius = 0.002;
+            var pol_to_cur_pos = [latlng[0] - POLIBAN_CORDS[0], latlng[1] - POLIBAN_CORDS[1]];
+            var length = Math.sqrt(Math.pow(pol_to_cur_pos[0], 2) + Math.pow(pol_to_cur_pos[1], 2));
+
+            if (length < poliban_radius) {
+                return true;
+            }
+
+            return false;
+        }
     </script>
 
 </body>
