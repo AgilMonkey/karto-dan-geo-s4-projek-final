@@ -91,9 +91,7 @@
                         </form>
                     </div>
 
-                    @error('absen')
-                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
-                    @enderror
+                    <div id="absenError" class="text-red-500 text-sm mt-1"></div>
 
                 </div>
 
@@ -110,11 +108,17 @@
             if (isInsidePoliban()) {
                 document.getElementById('datangForm').submit();
             }
+            else {
+                document.getElementById('absenError').textContent = "sedang tidak di kampus!";
+            }
         });
         document.getElementById('pulangButton').addEventListener('click', function(event) {
             event.preventDefault();
             if (isInsidePoliban()) {
                 document.getElementById('pulangForm').submit();
+            }
+            else {
+                document.getElementById('absenError').textContent = "sedang tidak di kampus!";
             }
         });
 
@@ -146,7 +150,7 @@
         function onLocationFound(e) {
             var latlng = e.latlng;
             pos = [latlng.lat, latlng.lng];
-            pos = [-3.2959108 + 0.0010, 114.5823674 + 0.0001]
+            // pos = [-3.2959108 + 0.0010, 114.5823674 + 0.0001]
 
             var lat = pos[0];
             var lon = pos[1];
